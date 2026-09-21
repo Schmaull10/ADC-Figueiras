@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f6b3b" />
+  <title>ADC Figueiras · Team Manager</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <img src="assets/adc-figueiras-emblema.png" alt="Emblema ADC Figueiras" />
+        </div>
+        <div>
+          <strong>ADC Figueiras</strong>
+          <span>Team Manager</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span> Início</button>
+        <button class="nav-item" data-view="squad"><span>◉</span> Plantel</button>
+        <button class="nav-item" data-view="training"><span>△</span> Treinos</button>
+        <button class="nav-item" data-view="games"><span>⚽</span> Jogos</button>
+        <button class="nav-item" data-view="calendar"><span>▦</span> Calendário</button>
+        <button class="nav-item" data-view="fines"><span>€</span> Multas</button>
+        <button class="nav-item" data-view="settings"><span>⚙</span> Definições</button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="season-pill">Época <strong id="seasonLabel">2026/27</strong></div>
+        <small>Dados guardados neste dispositivo</small>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+        <div>
+          <h1 id="pageTitle">Início</h1>
+          <p id="pageSubtitle">Resumo da equipa</p>
+        </div>
+        <div class="top-actions">
+          <span class="today-chip" id="todayChip"></span>
+          <button class="icon-btn" id="quickAdd" title="Adicionar">＋</button>
+        </div>
+      </header>
+
+      <section class="view active" id="view-dashboard"></section>
+      <section class="view" id="view-squad"></section>
+      <section class="view" id="view-training"></section>
+      <section class="view" id="view-games"></section>
+      <section class="view" id="view-calendar"></section>
+      <section class="view" id="view-fines"></section>
+      <section class="view" id="view-settings"></section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div><h2 id="modalTitle"></h2><p id="modalSubtitle"></p></div>
+        <button class="icon-btn ghost" id="closeModal" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <input type="file" id="importInput" accept="application/json" hidden />
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
